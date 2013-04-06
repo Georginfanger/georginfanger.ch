@@ -1,0 +1,122 @@
+/* 
+    Document   : menucss
+    Created on : 04.04.2013, 16:59:23
+    Author     : georginfanger
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* Menu */	
+
+#wrapper{
+      width:620px;
+      margin:0 auto;
+      margin-top:100px;
+}
+
+#nav {
+      position:relative;
+      width:1200px;
+      margin: 10px auto auto auto;
+
+}
+
+ul#navigation {
+      margin:0px ;
+      padding: 6px 6px;
+      position:relative;
+      margin-top: 10px;
+      float:left;
+      background: #000;
+      border-radius: 4px 4px 4px 4px;
+      color: white;
+      width: 100%;
+      -webkit-box-shadow: none;
+}
+
+ul#navigation li{
+      display:inline-block;
+      float:left;
+/*      text-align: center;*/
+      background: #000;
+      color: #FFF;
+      width: 100px;
+      height: 31px;
+      list-style: none;
+      border-radius: 4px 4px 0px 0px;
+      font-family: "Helvetica Neue";
+      font-style: normal;
+      font-weight: bolder;
+      font-size: 12px;
+}
+ul#navigation li:hover{
+      background-image:
+            -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            from(#7ba029),
+            to(#a5cd4e));
+}
+
+ul#navigation li a{
+      height: 20px;
+      display: inline-block;
+
+      line-height: 1;
+      text-decoration:none;
+      color: white;
+      margin: 7px 9px;
+      
+}
+
+/* Drop-Down Navigation */
+ul#navigation li:hover > ul
+{
+      visibility:visible;
+      opacity:1;
+}
+
+ul#navigation li:hover > a{
+     font-family: "Helvetica Neue";
+      font-style: normal;
+      font-size: 12px;
+      color: rgba(0,0,0,0.4);
+      text-shadow: 1px 1px rgba(255,255,255,0.22);;
+    
+}
+
+ul#navigation ul li ul {
+      margin: 0;
+      z-index: 99999;
+}
+
+ul#navigation ul{ 
+      visibility: hidden;
+      position: absolute;
+      width: 120px ;
+      top: 37px;
+      -webkit-transition:opacity 0.2s linear, visibility 0.2s linear;  /* verzögerung der visibility*/
+      -moz-transition:opacity 0.2s linear, visibility 0.2s linear; 
+      -o-transition:opacity 0.2s linear, visibility 0.2s linear; 
+      transition:opacity 0.2s linear, visibility 0.2s linear; 	
+}
+
+ul#navigation ul li{
+      display: list-item;
+      background:#7ba029;
+      border-radius: 0px 0px 0px 0px;
+}
+
+
+ul#navigation ul li:last-child {
+      border-radius: 0px 0px 3px 3px;
+      -webkit-box-shadow: none;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+/* 
+    Document   : maincss
+    Created on : 24.03.2013, 16:25:08
+    Author     : georginfanger
+    Description:
+        Purpose of the stylesheet follows.
+*/
+*{
+  margin: 0;
+  padding: 0;
+}
+
+root { 
+      display: block;
+}
+body {
+	background: rgb(180, 185, 190);
+	color: 80, 80, 80;
+	font-family: 'Lucida Grande', 'Lucida Sans', sans-serif;
+	font-size: 11px;
+	text-rendering: optimizeLegibility;
+}
+#content{
+      margin: auto;
+      width: 1200px;
+      border: black 0px solid;
+      height: 700px;
+}
+#mainMenu {
+      width: 1200px;
+}
+
+#mainMenu a{
+    
+}
+
+ol, ul {
+	list-style: none; }
+
+
