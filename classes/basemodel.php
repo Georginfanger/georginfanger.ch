@@ -20,9 +20,6 @@ class BaseModel {
             } else {
                   $this->commonViewData();
             }
-           
-
-        
       }
 
       //establish viewModel data that is required for all views in this method (i.e. the main template)

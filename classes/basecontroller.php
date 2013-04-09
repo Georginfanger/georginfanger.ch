@@ -17,12 +17,15 @@ abstract class BaseController {
       public function __construct($action, $urlValues) {
             $this->action = $action;
             $this->urlValues = $urlValues;
-            
-            require("models/". $this->urlValues['controller'] . "/" . $this->urlValues['controller'] . ".php");
+          
+            require("modules/". $this->urlValues['controller'] . "/models/". $this->urlValues['controller'] . ".php");
             $modelname =  $this->urlValues['controller'] . "Model";
+           
             $this->model = new $modelname();
             //establish the view object
+            
             $this->view = new View(get_class($this), $action);
+          
       }
 
       //executes the requested method

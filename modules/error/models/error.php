@@ -9,6 +9,9 @@
  */
 class ErrorModel extends BaseModel
 {    
+      public function __construct() {
+            parent::__construct(true);
+      }
     //data passed to the bad URL error view
     public function badURL()
     {
