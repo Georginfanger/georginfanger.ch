@@ -18,7 +18,7 @@ class Loader {
       public function __construct() {
 
             list($null,$controller, $action, $id) = explode("/",  $_SERVER['PATH_INFO']);
-            
+       
             $this->urlValues['base'] = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
             $this->urlValues['controller'] = $controller ? $controller : "home";
             $this->urlValues['action'] = $action;
@@ -61,13 +61,14 @@ class Loader {
                               //bad action/method error
                               $this->urlValues['controller'] = "error";
                               require("modules/error/controllers/error.php");
-                              return new ErrorController("badurl", $this->urlValues);
+                              return new ErrorController("badview", $this->urlValues);
                         }
                   } else {
                         $this->urlValues['controller'] = "error";
                         //bad controller error
+                        echo "hjh";
                         require("modules/error/controllers/error.php");
-                        return new ErrorController("badurl", $this->urlValues);
+                        return new ErrorController("b", $this->urlValues);
                   }
             } else {
                   

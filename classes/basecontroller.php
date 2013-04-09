@@ -16,6 +16,7 @@ abstract class BaseController {
 
       public function __construct($action, $urlValues) {
             $this->action = $action;
+     
             $this->urlValues = $urlValues;
           
             require("modules/". $this->urlValues['controller'] . "/models/". $this->urlValues['controller'] . ".php");

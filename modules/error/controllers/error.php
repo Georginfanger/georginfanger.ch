@@ -21,6 +21,11 @@ class ErrorController extends BaseController
     {
         $this->view->output($this->model->badURL(), "errortemplate");
     }
+    
+    protected function badView()
+    {
+        $this->view->output($this->model->badView(), "errortemplate");
+    }
 }
 
 ?>
