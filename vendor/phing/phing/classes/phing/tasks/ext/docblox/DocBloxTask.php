@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: eaa494390770adc752097a412d63fb863482fd5d $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -26,7 +26,7 @@ require_once 'phing/system/io/FileOutputStream.php';
  * DocBlox Task (http://www.docblox-project.org)
  *
  * @author    Michiel Rook <mrook@php.net>
- * @version   $Id: eaa494390770adc752097a412d63fb863482fd5d $
+ * @version   $Id$
  * @since     2.4.6
  * @package   phing.tasks.ext.docblox
  */

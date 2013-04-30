@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: 73ae55d7e1918ce0df306b1df4cd0dc656051bcc $
+ * $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -41,7 +41,7 @@ require_once 'phing/Task.php';
  *
  * @author Jorrit Schippers <jorrit at ncode dot nl>
  * @contributor Steffen Sørensen <steffen@sublife.dk>
- * @version $Id: 73ae55d7e1918ce0df306b1df4cd0dc656051bcc $
+ * @version $Id$
  * @since 2.3.1
  * @package  phing.tasks.ext
  */

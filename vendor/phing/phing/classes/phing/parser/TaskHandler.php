@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: b6862fa08ac29e45e028e0634ef7435761e10d40 $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -30,7 +30,7 @@ include_once 'phing/UnknownElement.php';
  *
  * @author    Andreas Aderhold <andi@binarycloud.com>
  * @copyright 2001,2002 THYRELL. All rights reserved
- * @version   $Id: b6862fa08ac29e45e028e0634ef7435761e10d40 $
+ * @version   $Id$
  * @package   phing.parser
  */
 class TaskHandler extends AbstractHandler {

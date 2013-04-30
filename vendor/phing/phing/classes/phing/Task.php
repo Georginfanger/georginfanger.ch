@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: 2403be59323266752e1cf7e28919f3f5a868f29f $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -29,7 +29,7 @@ include_once 'phing/RuntimeConfigurable.php';
  *
  * @author    Andreas Aderhold <andi@binarycloud.com>
  * @copyright 2001,2002 THYRELL. All rights reserved
- * @version   $Id: 2403be59323266752e1cf7e28919f3f5a868f29f $
+ * @version   $Id$
  * @see       Project#createTask()
  * @package   phing
  */

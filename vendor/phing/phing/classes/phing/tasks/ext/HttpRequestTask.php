@@ -1,6 +1,6 @@
 <?php
 /*
- * $Id: 495c02bc3a90d24694d8a4bf2d43ac077e0f9ec6 $
+ * $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -28,7 +28,7 @@ require_once 'phing/Task.php';
  *
  * @package phing.tasks.ext
  * @author  Benjamin Schultz <bschultz@proqrent.de>
- * @version $Id: 495c02bc3a90d24694d8a4bf2d43ac077e0f9ec6 $
+ * @version $Id$
  * @since   2.4.1
  */
 class HttpRequestTask extends Task

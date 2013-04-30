@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: 8b5a8e4f80b46f8a797b058dbb9a240a1185c12b $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -50,7 +50,7 @@ include_once 'phing/tasks/ext/pdo/PDOSQLExecFormatterElement.php';
  * @author    Michael McCallum <gholam@xtra.co.nz> (Ant)
  * @author    Tim Stephenson <tim.stephenson@sybase.com> (Ant)
  * @package   phing.tasks.ext.pdo
- * @version   $Id: 8b5a8e4f80b46f8a797b058dbb9a240a1185c12b $
+ * @version   $Id$
  */
 class PDOSQLExecTask extends PDOTask {
 

@@ -1,7 +1,7 @@
 <?php
 
 /*
- *  $Id: f33d6ef40fb4caf6fa12b8f1db8977e33c0cd7eb $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -38,7 +38,7 @@ include_once 'phing/parser/CustomChildCreator.php';
  * @author    Andreas Aderhold <andi@binarycloud.com>
  * @author    Hans Lellelid <hans@xmpl.org>
  * @copyright 2001,2002 THYRELL. All rights reserved
- * @version   $Id: f33d6ef40fb4caf6fa12b8f1db8977e33c0cd7eb $
+ * @version   $Id$
  * @package   phing
  */
 class IntrospectionHelper {

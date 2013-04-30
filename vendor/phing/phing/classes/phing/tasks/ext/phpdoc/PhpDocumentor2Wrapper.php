@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: 9057464ff65111ebba5b7d12cad8349e152ecc1f $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -24,7 +24,7 @@
  * PHP 5.2 compatibility in the main task)
  *
  * @author    Michiel Rook <mrook@php.net>
- * @version   $Id: 9057464ff65111ebba5b7d12cad8349e152ecc1f $
+ * @version   $Id$
  * @since     2.4.10
  * @package   phing.tasks.ext.phpdoc
  */

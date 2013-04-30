@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: 3ff8948931debbad7a5ff1c68eeed30c977ec69a $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -26,7 +26,7 @@ require_once 'Ssh2MethodParam.php';
  * Execute commands on a remote host using ssh.
  *
  * @author    Johan Van den Brande <johan@vandenbrande.com>
- * @version   $Id: 3ff8948931debbad7a5ff1c68eeed30c977ec69a $
+ * @version   $Id$
  * @package   phing.tasks.ext
  */
 class SshTask extends Task {

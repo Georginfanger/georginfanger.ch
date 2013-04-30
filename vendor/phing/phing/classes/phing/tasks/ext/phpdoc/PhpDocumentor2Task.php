@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: 1131b9fdbf0386b52151e0c7b43c890b0dabbacd $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -26,7 +26,7 @@ require_once 'phing/Task.php';
  * Based on the DocBlox Task
  *
  * @author    Michiel Rook <mrook@php.net>
- * @version   $Id: 1131b9fdbf0386b52151e0c7b43c890b0dabbacd $
+ * @version   $Id$
  * @since     2.4.10
  * @package   phing.tasks.ext.phpdoc
  */

@@ -8,7 +8,7 @@
  * @package  phing.types
  * @author   Christian Weiske <cweiske@cweiske.de>
  * @license  LGPL v3 or later http://www.gnu.org/licenses/lgpl.html
- * @version  SVN: $Id: 5ba010b83645d0ea709761a3d8260fc013239458 $
+ * @version  SVN: $Id$
  * @link     http://www.phing.info/
  */
 require_once 'phing/types/FileSet.php';

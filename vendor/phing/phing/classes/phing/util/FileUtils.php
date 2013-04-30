@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: bac97997db3beb8443d972f769a4fbe41fd5a4e1 $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -33,7 +33,7 @@ include_once 'phing/system/io/PhingFile.php';
  * - filter stuff
  *
  * @package  phing.util
- * @version  $Id: bac97997db3beb8443d972f769a4fbe41fd5a4e1 $
+ * @version  $Id$
  */
 class FileUtils {
         

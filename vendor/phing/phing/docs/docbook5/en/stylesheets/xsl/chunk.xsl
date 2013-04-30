@@ -3,7 +3,7 @@
     * ==============================================================================
     * Customization layer for chunk XSL Docbook5 used to produce chunked HTML
     *    
-    * Revision: $Id: 31a128ec5681e5f62deada16f6740f71bd930db5 $
+    * Revision: $Id$
     * ==============================================================================    
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"

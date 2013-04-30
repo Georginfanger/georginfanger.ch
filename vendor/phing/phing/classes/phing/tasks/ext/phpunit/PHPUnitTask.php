@@ -1,6 +1,6 @@
 <?php
 /**
- * $Id: 79c5c902b2dee70464674fea80d29df8586c7bb4 $
+ * $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -28,7 +28,7 @@ require_once 'phing/util/LogWriter.php';
  * Runs PHPUnit tests.
  *
  * @author Michiel Rook <mrook@php.net>
- * @version $Id: 79c5c902b2dee70464674fea80d29df8586c7bb4 $
+ * @version $Id$
  * @package phing.tasks.ext.phpunit
  * @see BatchTest
  * @since 2.1.0

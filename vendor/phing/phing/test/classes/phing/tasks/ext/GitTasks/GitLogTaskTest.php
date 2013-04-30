@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: e241da24054e586cda339b6b3269a7e250f812ea $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -25,7 +25,7 @@ require_once dirname(__FILE__) . '/GitTestsHelper.php';
 
 /**
  * @author Victor Farazdagi <simple.square@gmail.com>
- * @version $Id: e241da24054e586cda339b6b3269a7e250f812ea $
+ * @version $Id$
  * @package phing.tasks.ext
  */
 class GitLogTaskTest extends BuildFileTest { 

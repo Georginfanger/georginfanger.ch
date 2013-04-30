@@ -1,7 +1,7 @@
 <?php
 
 /*
- *  $Id: 31abe34bfab832bbfaf2e76735a48e55387f5e8e $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -25,7 +25,7 @@ require_once 'phing/tasks/ext/ComposerTask.php';
  * Test class for the ComposerTask.
  *
  * @author  Nuno Costa <nuno@francodacosta.com>
- * @version $Id: 31abe34bfab832bbfaf2e76735a48e55387f5e8e $
+ * @version $Id$
  * @package phing.tasks.ext
  */
 class ComposerTaskTest extends PHPUnit_Framework_TestCase

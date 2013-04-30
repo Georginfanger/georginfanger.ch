@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: 3c8b7f5610c6a43e78ce61de12c4ea7b0b31c78d $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -28,7 +28,7 @@
  *
  * @author    Andreas Aderhold <andi@binarycloud.com>
  * @author    Hans Lellelid <hans@xmpl.org>
- * @version   $Id: 3c8b7f5610c6a43e78ce61de12c4ea7b0b31c78d $
+ * @version   $Id$
  * @package   phing
  */
 class RuntimeConfigurable {

@@ -1,6 +1,6 @@
 <?php
 /**
- *  $Id: 572bbfe2e542b864211a85de9990f5cbfe31a4cd $
+ *  $Id$
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,7 +27,7 @@ require_once 'phing/Task.php';
  *
  * @package phing.tasks.ext.pdepend
  * @author  Benjamin Schultz <bschultz@proqrent.de>
- * @version $Id: 572bbfe2e542b864211a85de9990f5cbfe31a4cd $
+ * @version $Id$
  * @since   2.4.1
  */
 class PhpDependTask extends Task
