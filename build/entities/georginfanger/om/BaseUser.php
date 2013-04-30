@@ -2,24 +2,24 @@
 
 
 /**
- * Base class that represents a row from the 'test' table.
+ * Base class that represents a row from the 'user' table.
  *
  *
  *
  * @package    propel.generator.georginfanger.om
  */
-abstract class BaseTest extends BaseObject implements Persistent
+abstract class BaseUser extends BaseObject implements Persistent
 {
     /**
      * Peer class name
      */
-    const PEER = 'TestPeer';
+    const PEER = 'UserPeer';
 
     /**
      * The Peer class.
      * Instance provides a convenient way of calling static methods on a class
      * that calling code may not be able to identify.
-     * @var        TestPeer
+     * @var        UserPeer
      */
     protected static $peer;
 
@@ -30,10 +30,28 @@ abstract class BaseTest extends BaseObject implements Persistent
     protected $startCopy = false;
 
     /**
-     * The value for the id field.
+     * The value for the pk_user field.
      * @var        int
      */
-    protected $id;
+    protected $pk_user;
+
+    /**
+     * The value for the user_uname field.
+     * @var        string
+     */
+    protected $user_uname;
+
+    /**
+     * The value for the user_pw field.
+     * @var        string
+     */
+    protected $user_pw;
+
+    /**
+     * The value for the user_salt field.
+     * @var        string
+     */
+    protected $user_salt;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -56,35 +74,128 @@ abstract class BaseTest extends BaseObject implements Persistent
     protected $alreadyInClearAllReferencesDeep = false;
 
     /**
-     * Get the [id] column value.
+     * Get the [pk_user] column value.
      *
      * @return int
      */
-    public function getId()
+    public function getPkUser()
     {
-        return $this->id;
+        return $this->pk_user;
     }
 
     /**
-     * Set the value of [id] column.
+     * Get the [user_uname] column value.
+     *
+     * @return string
+     */
+    public function getUserUname()
+    {
+        return $this->user_uname;
+    }
+
+    /**
+     * Get the [user_pw] column value.
+     *
+     * @return string
+     */
+    public function getUserPw()
+    {
+        return $this->user_pw;
+    }
+
+    /**
+     * Get the [user_salt] column value.
+     *
+     * @return string
+     */
+    public function getUserSalt()
+    {
+        return $this->user_salt;
+    }
+
+    /**
+     * Set the value of [pk_user] column.
      *
      * @param int $v new value
-     * @return Test The current object (for fluent API support)
+     * @return User The current object (for fluent API support)
      */
-    public function setId($v)
+    public function setPkUser($v)
     {
         if ($v !== null && is_numeric($v)) {
             $v = (int) $v;
         }
 
-        if ($this->id !== $v) {
-            $this->id = $v;
-            $this->modifiedColumns[] = TestPeer::ID;
+        if ($this->pk_user !== $v) {
+            $this->pk_user = $v;
+            $this->modifiedColumns[] = UserPeer::PK_USER;
         }
 
 
         return $this;
-    } // setId()
+    } // setPkUser()
+
+    /**
+     * Set the value of [user_uname] column.
+     *
+     * @param string $v new value
+     * @return User The current object (for fluent API support)
+     */
+    public function setUserUname($v)
+    {
+        if ($v !== null && is_numeric($v)) {
+            $v = (string) $v;
+        }
+
+        if ($this->user_uname !== $v) {
+            $this->user_uname = $v;
+            $this->modifiedColumns[] = UserPeer::USER_UNAME;
+        }
+
+
+        return $this;
+    } // setUserUname()
+
+    /**
+     * Set the value of [user_pw] column.
+     *
+     * @param string $v new value
+     * @return User The current object (for fluent API support)
+     */
+    public function setUserPw($v)
+    {
+        if ($v !== null && is_numeric($v)) {
+            $v = (string) $v;
+        }
+
+        if ($this->user_pw !== $v) {
+            $this->user_pw = $v;
+            $this->modifiedColumns[] = UserPeer::USER_PW;
+        }
+
+
+        return $this;
+    } // setUserPw()
+
+    /**
+     * Set the value of [user_salt] column.
+     *
+     * @param string $v new value
+     * @return User The current object (for fluent API support)
+     */
+    public function setUserSalt($v)
+    {
+        if ($v !== null && is_numeric($v)) {
+            $v = (string) $v;
+        }
+
+        if ($this->user_salt !== $v) {
+            $this->user_salt = $v;
+            $this->modifiedColumns[] = UserPeer::USER_SALT;
+        }
+
+
+        return $this;
+    } // setUserSalt()
 
     /**
      * Indicates whether the columns in this object are only set to default values.
@@ -118,7 +229,10 @@ abstract class BaseTest extends BaseObject implements Persistent
     {
         try {
 
-            $this->id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
+            $this->pk_user = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
+            $this->user_uname = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
+            $this->user_pw = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
+            $this->user_salt = ($row[$startcol + 3] !== null) ? (string) $row[$startcol + 3] : null;
             $this->resetModified();
 
             $this->setNew(false);
@@ -127,10 +241,10 @@ abstract class BaseTest extends BaseObject implements Persistent
                 $this->ensureConsistency();
             }
             $this->postHydrate($row, $startcol, $rehydrate);
-            return $startcol + 1; // 1 = TestPeer::NUM_HYDRATE_COLUMNS.
+            return $startcol + 4; // 4 = UserPeer::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException("Error populating Test object", $e);
+            throw new PropelException("Error populating User object", $e);
         }
     }
 
@@ -173,13 +287,13 @@ abstract class BaseTest extends BaseObject implements Persistent
         }
 
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $stmt = TestPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
+        $stmt = UserPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
         $row = $stmt->fetch(PDO::FETCH_NUM);
         $stmt->closeCursor();
         if (!$row) {
@@ -209,12 +323,12 @@ abstract class BaseTest extends BaseObject implements Persistent
         }
 
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
         $con->beginTransaction();
         try {
-            $deleteQuery = TestQuery::create()
+            $deleteQuery = UserQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -252,7 +366,7 @@ abstract class BaseTest extends BaseObject implements Persistent
         }
 
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
         $con->beginTransaction();
@@ -272,7 +386,7 @@ abstract class BaseTest extends BaseObject implements Persistent
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                TestPeer::addInstanceToPool($this);
+                UserPeer::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -333,18 +447,23 @@ abstract class BaseTest extends BaseObject implements Persistent
         $modifiedColumns = array();
         $index = 0;
 
-        $this->modifiedColumns[] = TestPeer::ID;
-        if (null !== $this->id) {
-            throw new PropelException('Cannot insert a value for auto-increment primary key (' . TestPeer::ID . ')');
-        }
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(TestPeer::ID)) {
-            $modifiedColumns[':p' . $index++]  = '`id`';
+        if ($this->isColumnModified(UserPeer::PK_USER)) {
+            $modifiedColumns[':p' . $index++]  = '`pk_user`';
+        }
+        if ($this->isColumnModified(UserPeer::USER_UNAME)) {
+            $modifiedColumns[':p' . $index++]  = '`user_uname`';
+        }
+        if ($this->isColumnModified(UserPeer::USER_PW)) {
+            $modifiedColumns[':p' . $index++]  = '`user_pw`';
+        }
+        if ($this->isColumnModified(UserPeer::USER_SALT)) {
+            $modifiedColumns[':p' . $index++]  = '`user_salt`';
         }
 
         $sql = sprintf(
-            'INSERT INTO `test` (%s) VALUES (%s)',
+            'INSERT INTO `user` (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -353,8 +472,17 @@ abstract class BaseTest extends BaseObject implements Persistent
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
-                    case '`id`':
-                        $stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
+                    case '`pk_user`':
+                        $stmt->bindValue($identifier, $this->pk_user, PDO::PARAM_INT);
+                        break;
+                    case '`user_uname`':
+                        $stmt->bindValue($identifier, $this->user_uname, PDO::PARAM_STR);
+                        break;
+                    case '`user_pw`':
+                        $stmt->bindValue($identifier, $this->user_pw, PDO::PARAM_STR);
+                        break;
+                    case '`user_salt`':
+                        $stmt->bindValue($identifier, $this->user_salt, PDO::PARAM_STR);
                         break;
                 }
             }
@@ -363,13 +491,6 @@ abstract class BaseTest extends BaseObject implements Persistent
             Propel::log($e->getMessage(), Propel::LOG_ERR);
             throw new PropelException(sprintf('Unable to execute INSERT statement [%s]', $sql), $e);
         }
-
-        try {
-            $pk = $con->lastInsertId();
-        } catch (Exception $e) {
-            throw new PropelException('Unable to get autoincrement id.', $e);
-        }
-        $this->setId($pk);
 
         $this->setNew(false);
     }
@@ -450,7 +571,7 @@ abstract class BaseTest extends BaseObject implements Persistent
             $failureMap = array();
 
 
-            if (($retval = TestPeer::doValidate($this, $columns)) !== true) {
+            if (($retval = UserPeer::doValidate($this, $columns)) !== true) {
                 $failureMap = array_merge($failureMap, $retval);
             }
 
@@ -474,7 +595,7 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
     {
-        $pos = TestPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+        $pos = UserPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -491,7 +612,16 @@ abstract class BaseTest extends BaseObject implements Persistent
     {
         switch ($pos) {
             case 0:
-                return $this->getId();
+                return $this->getPkUser();
+                break;
+            case 1:
+                return $this->getUserUname();
+                break;
+            case 2:
+                return $this->getUserPw();
+                break;
+            case 3:
+                return $this->getUserSalt();
                 break;
             default:
                 return null;
@@ -515,13 +645,16 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
-        if (isset($alreadyDumpedObjects['Test'][$this->getPrimaryKey()])) {
+        if (isset($alreadyDumpedObjects['User'][$this->getPrimaryKey()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['Test'][$this->getPrimaryKey()] = true;
-        $keys = TestPeer::getFieldNames($keyType);
+        $alreadyDumpedObjects['User'][$this->getPrimaryKey()] = true;
+        $keys = UserPeer::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getId(),
+            $keys[0] => $this->getPkUser(),
+            $keys[1] => $this->getUserUname(),
+            $keys[2] => $this->getUserPw(),
+            $keys[3] => $this->getUserSalt(),
         );
 
         return $result;
@@ -540,7 +673,7 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
     {
-        $pos = TestPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+        $pos = UserPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 
         $this->setByPosition($pos, $value);
     }
@@ -557,7 +690,16 @@ abstract class BaseTest extends BaseObject implements Persistent
     {
         switch ($pos) {
             case 0:
-                $this->setId($value);
+                $this->setPkUser($value);
+                break;
+            case 1:
+                $this->setUserUname($value);
+                break;
+            case 2:
+                $this->setUserPw($value);
+                break;
+            case 3:
+                $this->setUserSalt($value);
                 break;
         } // switch()
     }
@@ -581,9 +723,12 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
     {
-        $keys = TestPeer::getFieldNames($keyType);
+        $keys = UserPeer::getFieldNames($keyType);
 
-        if (array_key_exists($keys[0], $arr)) $this->setId($arr[$keys[0]]);
+        if (array_key_exists($keys[0], $arr)) $this->setPkUser($arr[$keys[0]]);
+        if (array_key_exists($keys[1], $arr)) $this->setUserUname($arr[$keys[1]]);
+        if (array_key_exists($keys[2], $arr)) $this->setUserPw($arr[$keys[2]]);
+        if (array_key_exists($keys[3], $arr)) $this->setUserSalt($arr[$keys[3]]);
     }
 
     /**
@@ -593,9 +738,12 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(TestPeer::DATABASE_NAME);
+        $criteria = new Criteria(UserPeer::DATABASE_NAME);
 
-        if ($this->isColumnModified(TestPeer::ID)) $criteria->add(TestPeer::ID, $this->id);
+        if ($this->isColumnModified(UserPeer::PK_USER)) $criteria->add(UserPeer::PK_USER, $this->pk_user);
+        if ($this->isColumnModified(UserPeer::USER_UNAME)) $criteria->add(UserPeer::USER_UNAME, $this->user_uname);
+        if ($this->isColumnModified(UserPeer::USER_PW)) $criteria->add(UserPeer::USER_PW, $this->user_pw);
+        if ($this->isColumnModified(UserPeer::USER_SALT)) $criteria->add(UserPeer::USER_SALT, $this->user_salt);
 
         return $criteria;
     }
@@ -610,8 +758,8 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function buildPkeyCriteria()
     {
-        $criteria = new Criteria(TestPeer::DATABASE_NAME);
-        $criteria->add(TestPeer::ID, $this->id);
+        $criteria = new Criteria(UserPeer::DATABASE_NAME);
+        $criteria->add(UserPeer::PK_USER, $this->pk_user);
 
         return $criteria;
     }
@@ -622,18 +770,18 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function getPrimaryKey()
     {
-        return $this->getId();
+        return $this->getPkUser();
     }
 
     /**
-     * Generic method to set the primary key (id column).
+     * Generic method to set the primary key (pk_user column).
      *
      * @param  int $key Primary key.
      * @return void
      */
     public function setPrimaryKey($key)
     {
-        $this->setId($key);
+        $this->setPkUser($key);
     }
 
     /**
@@ -643,7 +791,7 @@ abstract class BaseTest extends BaseObject implements Persistent
     public function isPrimaryKeyNull()
     {
 
-        return null === $this->getId();
+        return null === $this->getPkUser();
     }
 
     /**
@@ -652,16 +800,19 @@ abstract class BaseTest extends BaseObject implements Persistent
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param object $copyObj An object of Test (or compatible) type.
+     * @param object $copyObj An object of User (or compatible) type.
      * @param boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
+        $copyObj->setUserUname($this->getUserUname());
+        $copyObj->setUserPw($this->getUserPw());
+        $copyObj->setUserSalt($this->getUserSalt());
         if ($makeNew) {
             $copyObj->setNew(true);
-            $copyObj->setId(NULL); // this is a auto-increment column, so set to default value
+            $copyObj->setPkUser(NULL); // this is a auto-increment column, so set to default value
         }
     }
 
@@ -674,7 +825,7 @@ abstract class BaseTest extends BaseObject implements Persistent
      * objects.
      *
      * @param boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return Test Clone of current object.
+     * @return User Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -694,12 +845,12 @@ abstract class BaseTest extends BaseObject implements Persistent
      * same instance for all member of this class. The method could therefore
      * be static, but this would prevent one from overriding the behavior.
      *
-     * @return TestPeer
+     * @return UserPeer
      */
     public function getPeer()
     {
         if (self::$peer === null) {
-            self::$peer = new TestPeer();
+            self::$peer = new UserPeer();
         }
 
         return self::$peer;
@@ -710,7 +861,10 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function clear()
     {
-        $this->id = null;
+        $this->pk_user = null;
+        $this->user_uname = null;
+        $this->user_pw = null;
+        $this->user_salt = null;
         $this->alreadyInSave = false;
         $this->alreadyInValidation = false;
         $this->alreadyInClearAllReferencesDeep = false;
@@ -746,7 +900,7 @@ abstract class BaseTest extends BaseObject implements Persistent
      */
     public function __toString()
     {
-        return (string) $this->exportTo(TestPeer::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(UserPeer::DEFAULT_STRING_FORMAT);
     }
 
     /**

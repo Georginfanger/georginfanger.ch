@@ -3,7 +3,7 @@
 
 
 /**
- * Skeleton subclass for performing query and update operations on the 'book' table.
+ * Skeleton subclass for representing a row from the '"tbl_"user' table.
  *
  *
  *
@@ -13,6 +13,6 @@
  *
  * @package    propel.generator.georginfanger
  */
-class BookPeer extends BaseBookPeer
+class User extends BaseUser
 {
 }

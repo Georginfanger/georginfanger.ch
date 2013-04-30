@@ -3,7 +3,7 @@
 
 
 /**
- * Skeleton subclass for performing query and update operations on the 'test' table.
+ * Skeleton subclass for performing query and update operations on the '"tbl_"user' table.
  *
  *
  *
@@ -13,6 +13,6 @@
  *
  * @package    propel.generator.georginfanger
  */
-class TestPeer extends BaseTestPeer
+class UserQuery extends BaseUserQuery
 {
 }

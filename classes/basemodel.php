@@ -25,12 +25,12 @@ class BaseModel {
       //establish viewModel data that is required for all views in this method (i.e. the main template)
       protected function commonViewData() {
             //print "Hello";
-            $this->viewModel->set("mainMenu", array("Home" => "home", "Help" => "help"));
+            $this->viewModel->set("mainMenu", array("Home" => "home", "Admin" => "admin", "Help" => "help"));
             $this->viewModel->set("Basepath", "http://localhost/~georginfanger/georginfanger/");
       }
        protected function adminViewData() {
             //print "Hello";
-            $this->viewModel->set("mainMenu", array("Dashboard" => "admin/index", "Help" => array("test"=>"neu", "Hello" =>"DU")));
+            $this->viewModel->set("mainMenu", array("Dashboard" => "admin/index" ,"User"=> "admin/user",  "Help" => array("test"=>"neu", "Hello" =>"DU")));
             $this->viewModel->set("Basepath", "http://localhost/~georginfanger/georginfanger/");
       }
 

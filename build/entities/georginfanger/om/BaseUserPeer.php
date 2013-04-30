@@ -2,47 +2,56 @@
 
 
 /**
- * Base static class for performing query and update operations on the 'test' table.
+ * Base static class for performing query and update operations on the 'user' table.
  *
  *
  *
  * @package propel.generator.georginfanger.om
  */
-abstract class BaseTestPeer
+abstract class BaseUserPeer
 {
 
     /** the default database name for this class */
     const DATABASE_NAME = 'georginfanger';
 
     /** the table name for this class */
-    const TABLE_NAME = 'test';
+    const TABLE_NAME = 'user';
 
     /** the related Propel class for this table */
-    const OM_CLASS = 'Test';
+    const OM_CLASS = 'User';
 
     /** the related TableMap class for this table */
-    const TM_CLASS = 'TestTableMap';
+    const TM_CLASS = 'UserTableMap';
 
     /** The total number of columns. */
-    const NUM_COLUMNS = 1;
+    const NUM_COLUMNS = 4;
 
     /** The number of lazy-loaded columns. */
     const NUM_LAZY_LOAD_COLUMNS = 0;
 
     /** The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS) */
-    const NUM_HYDRATE_COLUMNS = 1;
+    const NUM_HYDRATE_COLUMNS = 4;
 
-    /** the column name for the id field */
-    const ID = 'test.id';
+    /** the column name for the pk_user field */
+    const PK_USER = 'user.pk_user';
+
+    /** the column name for the user_uname field */
+    const USER_UNAME = 'user.user_uname';
+
+    /** the column name for the user_pw field */
+    const USER_PW = 'user.user_pw';
+
+    /** the column name for the user_salt field */
+    const USER_SALT = 'user.user_salt';
 
     /** The default string format for model objects of the related table **/
     const DEFAULT_STRING_FORMAT = 'YAML';
 
     /**
-     * An identiy map to hold any loaded instances of Test objects.
+     * An identiy map to hold any loaded instances of User objects.
      * This must be public so that other peer classes can access this when hydrating from JOIN
      * queries.
-     * @var        array Test[]
+     * @var        array User[]
      */
     public static $instances = array();
 
@@ -51,30 +60,30 @@ abstract class BaseTestPeer
      * holds an array of fieldnames
      *
      * first dimension keys are the type constants
-     * e.g. TestPeer::$fieldNames[TestPeer::TYPE_PHPNAME][0] = 'Id'
+     * e.g. UserPeer::$fieldNames[UserPeer::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        BasePeer::TYPE_PHPNAME => array ('Id', ),
-        BasePeer::TYPE_STUDLYPHPNAME => array ('id', ),
-        BasePeer::TYPE_COLNAME => array (TestPeer::ID, ),
-        BasePeer::TYPE_RAW_COLNAME => array ('ID', ),
-        BasePeer::TYPE_FIELDNAME => array ('id', ),
-        BasePeer::TYPE_NUM => array (0, )
+        BasePeer::TYPE_PHPNAME => array ('PkUser', 'UserUname', 'UserPw', 'UserSalt', ),
+        BasePeer::TYPE_STUDLYPHPNAME => array ('pkUser', 'userUname', 'userPw', 'userSalt', ),
+        BasePeer::TYPE_COLNAME => array (UserPeer::PK_USER, UserPeer::USER_UNAME, UserPeer::USER_PW, UserPeer::USER_SALT, ),
+        BasePeer::TYPE_RAW_COLNAME => array ('PK_USER', 'USER_UNAME', 'USER_PW', 'USER_SALT', ),
+        BasePeer::TYPE_FIELDNAME => array ('pk_user', 'user_uname', 'user_pw', 'user_salt', ),
+        BasePeer::TYPE_NUM => array (0, 1, 2, 3, )
     );
 
     /**
      * holds an array of keys for quick access to the fieldnames array
      *
      * first dimension keys are the type constants
-     * e.g. TestPeer::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
+     * e.g. UserPeer::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        BasePeer::TYPE_PHPNAME => array ('Id' => 0, ),
-        BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, ),
-        BasePeer::TYPE_COLNAME => array (TestPeer::ID => 0, ),
-        BasePeer::TYPE_RAW_COLNAME => array ('ID' => 0, ),
-        BasePeer::TYPE_FIELDNAME => array ('id' => 0, ),
-        BasePeer::TYPE_NUM => array (0, )
+        BasePeer::TYPE_PHPNAME => array ('PkUser' => 0, 'UserUname' => 1, 'UserPw' => 2, 'UserSalt' => 3, ),
+        BasePeer::TYPE_STUDLYPHPNAME => array ('pkUser' => 0, 'userUname' => 1, 'userPw' => 2, 'userSalt' => 3, ),
+        BasePeer::TYPE_COLNAME => array (UserPeer::PK_USER => 0, UserPeer::USER_UNAME => 1, UserPeer::USER_PW => 2, UserPeer::USER_SALT => 3, ),
+        BasePeer::TYPE_RAW_COLNAME => array ('PK_USER' => 0, 'USER_UNAME' => 1, 'USER_PW' => 2, 'USER_SALT' => 3, ),
+        BasePeer::TYPE_FIELDNAME => array ('pk_user' => 0, 'user_uname' => 1, 'user_pw' => 2, 'user_salt' => 3, ),
+        BasePeer::TYPE_NUM => array (0, 1, 2, 3, )
     );
 
     /**
@@ -89,10 +98,10 @@ abstract class BaseTestPeer
      */
     public static function translateFieldName($name, $fromType, $toType)
     {
-        $toNames = TestPeer::getFieldNames($toType);
-        $key = isset(TestPeer::$fieldKeys[$fromType][$name]) ? TestPeer::$fieldKeys[$fromType][$name] : null;
+        $toNames = UserPeer::getFieldNames($toType);
+        $key = isset(UserPeer::$fieldKeys[$fromType][$name]) ? UserPeer::$fieldKeys[$fromType][$name] : null;
         if ($key === null) {
-            throw new PropelException("'$name' could not be found in the field names of type '$fromType'. These are: " . print_r(TestPeer::$fieldKeys[$fromType], true));
+            throw new PropelException("'$name' could not be found in the field names of type '$fromType'. These are: " . print_r(UserPeer::$fieldKeys[$fromType], true));
         }
 
         return $toNames[$key];
@@ -109,11 +118,11 @@ abstract class BaseTestPeer
      */
     public static function getFieldNames($type = BasePeer::TYPE_PHPNAME)
     {
-        if (!array_key_exists($type, TestPeer::$fieldNames)) {
+        if (!array_key_exists($type, UserPeer::$fieldNames)) {
             throw new PropelException('Method getFieldNames() expects the parameter $type to be one of the class constants BasePeer::TYPE_PHPNAME, BasePeer::TYPE_STUDLYPHPNAME, BasePeer::TYPE_COLNAME, BasePeer::TYPE_FIELDNAME, BasePeer::TYPE_NUM. ' . $type . ' was given.');
         }
 
-        return TestPeer::$fieldNames[$type];
+        return UserPeer::$fieldNames[$type];
     }
 
     /**
@@ -125,12 +134,12 @@ abstract class BaseTestPeer
      *		$c->addJoin(TablePeer::alias("alias1", TablePeer::PRIMARY_KEY_COLUMN), TablePeer::PRIMARY_KEY_COLUMN);
      * </code>
      * @param      string $alias The alias for the current table.
-     * @param      string $column The column name for current table. (i.e. TestPeer::COLUMN_NAME).
+     * @param      string $column The column name for current table. (i.e. UserPeer::COLUMN_NAME).
      * @return string
      */
     public static function alias($alias, $column)
     {
-        return str_replace(TestPeer::TABLE_NAME.'.', $alias.'.', $column);
+        return str_replace(UserPeer::TABLE_NAME.'.', $alias.'.', $column);
     }
 
     /**
@@ -148,9 +157,15 @@ abstract class BaseTestPeer
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(TestPeer::ID);
+            $criteria->addSelectColumn(UserPeer::PK_USER);
+            $criteria->addSelectColumn(UserPeer::USER_UNAME);
+            $criteria->addSelectColumn(UserPeer::USER_PW);
+            $criteria->addSelectColumn(UserPeer::USER_SALT);
         } else {
-            $criteria->addSelectColumn($alias . '.id');
+            $criteria->addSelectColumn($alias . '.pk_user');
+            $criteria->addSelectColumn($alias . '.user_uname');
+            $criteria->addSelectColumn($alias . '.user_pw');
+            $criteria->addSelectColumn($alias . '.user_salt');
         }
     }
 
@@ -170,21 +185,21 @@ abstract class BaseTestPeer
         // We need to set the primary table name, since in the case that there are no WHERE columns
         // it will be impossible for the BasePeer::createSelectSql() method to determine which
         // tables go into the FROM clause.
-        $criteria->setPrimaryTableName(TestPeer::TABLE_NAME);
+        $criteria->setPrimaryTableName(UserPeer::TABLE_NAME);
 
         if ($distinct && !in_array(Criteria::DISTINCT, $criteria->getSelectModifiers())) {
             $criteria->setDistinct();
         }
 
         if (!$criteria->hasSelectClause()) {
-            TestPeer::addSelectColumns($criteria);
+            UserPeer::addSelectColumns($criteria);
         }
 
         $criteria->clearOrderByColumns(); // ORDER BY won't ever affect the count
-        $criteria->setDbName(TestPeer::DATABASE_NAME); // Set the correct dbName
+        $criteria->setDbName(UserPeer::DATABASE_NAME); // Set the correct dbName
 
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
         // BasePeer returns a PDOStatement
         $stmt = BasePeer::doCount($criteria, $con);
@@ -203,7 +218,7 @@ abstract class BaseTestPeer
      *
      * @param      Criteria $criteria object used to create the SELECT statement.
      * @param      PropelPDO $con
-     * @return                 Test
+     * @return                 User
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
@@ -211,7 +226,7 @@ abstract class BaseTestPeer
     {
         $critcopy = clone $criteria;
         $critcopy->setLimit(1);
-        $objects = TestPeer::doSelect($critcopy, $con);
+        $objects = UserPeer::doSelect($critcopy, $con);
         if ($objects) {
             return $objects[0];
         }
@@ -229,7 +244,7 @@ abstract class BaseTestPeer
      */
     public static function doSelect(Criteria $criteria, PropelPDO $con = null)
     {
-        return TestPeer::populateObjects(TestPeer::doSelectStmt($criteria, $con));
+        return UserPeer::populateObjects(UserPeer::doSelectStmt($criteria, $con));
     }
     /**
      * Prepares the Criteria object and uses the parent doSelect() method to execute a PDOStatement.
@@ -247,16 +262,16 @@ abstract class BaseTestPeer
     public static function doSelectStmt(Criteria $criteria, PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
         if (!$criteria->hasSelectClause()) {
             $criteria = clone $criteria;
-            TestPeer::addSelectColumns($criteria);
+            UserPeer::addSelectColumns($criteria);
         }
 
         // Set the correct dbName
-        $criteria->setDbName(TestPeer::DATABASE_NAME);
+        $criteria->setDbName(UserPeer::DATABASE_NAME);
 
         // BasePeer returns a PDOStatement
         return BasePeer::doSelect($criteria, $con);
@@ -270,16 +285,16 @@ abstract class BaseTestPeer
      * to the cache in order to ensure that the same objects are always returned by doSelect*()
      * and retrieveByPK*() calls.
      *
-     * @param      Test $obj A Test object.
+     * @param      User $obj A User object.
      * @param      string $key (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
     {
         if (Propel::isInstancePoolingEnabled()) {
             if ($key === null) {
-                $key = (string) $obj->getId();
+                $key = (string) $obj->getPkUser();
             } // if key === null
-            TestPeer::$instances[$key] = $obj;
+            UserPeer::$instances[$key] = $obj;
         }
     }
 
@@ -291,7 +306,7 @@ abstract class BaseTestPeer
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param      mixed $value A Test object or a primary key value.
+     * @param      mixed $value A User object or a primary key value.
      *
      * @return void
      * @throws PropelException - if the value is invalid.
@@ -299,17 +314,17 @@ abstract class BaseTestPeer
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && $value !== null) {
-            if (is_object($value) && $value instanceof Test) {
-                $key = (string) $value->getId();
+            if (is_object($value) && $value instanceof User) {
+                $key = (string) $value->getPkUser();
             } elseif (is_scalar($value)) {
                 // assume we've been passed a primary key
                 $key = (string) $value;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or Test object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value,true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or User object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value,true)));
                 throw $e;
             }
 
-            unset(TestPeer::$instances[$key]);
+            unset(UserPeer::$instances[$key]);
         }
     } // removeInstanceFromPool()
 
@@ -320,14 +335,14 @@ abstract class BaseTestPeer
      * a multi-column primary key, a serialize()d version of the primary key will be returned.
      *
      * @param      string $key The key (@see getPrimaryKeyHash()) for this instance.
-     * @return   Test Found object or null if 1) no instance exists for specified key or 2) instance pooling has been disabled.
+     * @return   User Found object or null if 1) no instance exists for specified key or 2) instance pooling has been disabled.
      * @see        getPrimaryKeyHash()
      */
     public static function getInstanceFromPool($key)
     {
         if (Propel::isInstancePoolingEnabled()) {
-            if (isset(TestPeer::$instances[$key])) {
-                return TestPeer::$instances[$key];
+            if (isset(UserPeer::$instances[$key])) {
+                return UserPeer::$instances[$key];
             }
         }
 
@@ -343,16 +358,16 @@ abstract class BaseTestPeer
     {
       if ($and_clear_all_references)
       {
-        foreach (TestPeer::$instances as $instance)
+        foreach (UserPeer::$instances as $instance)
         {
           $instance->clearAllReferences(true);
         }
       }
-        TestPeer::$instances = array();
+        UserPeer::$instances = array();
     }
 
     /**
-     * Method to invalidate the instance pool of all tables related to test
+     * Method to invalidate the instance pool of all tables related to user
      * by a foreign key with ON DELETE CASCADE
      */
     public static function clearRelatedInstancePool()
@@ -406,11 +421,11 @@ abstract class BaseTestPeer
         $results = array();
 
         // set the class once to avoid overhead in the loop
-        $cls = TestPeer::getOMClass();
+        $cls = UserPeer::getOMClass();
         // populate the object(s)
         while ($row = $stmt->fetch(PDO::FETCH_NUM)) {
-            $key = TestPeer::getPrimaryKeyHashFromRow($row, 0);
-            if (null !== ($obj = TestPeer::getInstanceFromPool($key))) {
+            $key = UserPeer::getPrimaryKeyHashFromRow($row, 0);
+            if (null !== ($obj = UserPeer::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
@@ -419,7 +434,7 @@ abstract class BaseTestPeer
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                TestPeer::addInstanceToPool($obj, $key);
+                UserPeer::addInstanceToPool($obj, $key);
             } // if key exists
         }
         $stmt->closeCursor();
@@ -433,21 +448,21 @@ abstract class BaseTestPeer
      * @param      int $startcol The 0-based offset for reading from the resultset row.
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
-     * @return array (Test object, last column rank)
+     * @return array (User object, last column rank)
      */
     public static function populateObject($row, $startcol = 0)
     {
-        $key = TestPeer::getPrimaryKeyHashFromRow($row, $startcol);
-        if (null !== ($obj = TestPeer::getInstanceFromPool($key))) {
+        $key = UserPeer::getPrimaryKeyHashFromRow($row, $startcol);
+        if (null !== ($obj = UserPeer::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $startcol, true); // rehydrate
-            $col = $startcol + TestPeer::NUM_HYDRATE_COLUMNS;
+            $col = $startcol + UserPeer::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = TestPeer::OM_CLASS;
+            $cls = UserPeer::OM_CLASS;
             $obj = new $cls();
             $col = $obj->hydrate($row, $startcol);
-            TestPeer::addInstanceToPool($obj, $key);
+            UserPeer::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -462,7 +477,7 @@ abstract class BaseTestPeer
      */
     public static function getTableMap()
     {
-        return Propel::getDatabaseMap(TestPeer::DATABASE_NAME)->getTable(TestPeer::TABLE_NAME);
+        return Propel::getDatabaseMap(UserPeer::DATABASE_NAME)->getTable(UserPeer::TABLE_NAME);
     }
 
     /**
@@ -470,9 +485,9 @@ abstract class BaseTestPeer
      */
     public static function buildTableMap()
     {
-      $dbMap = Propel::getDatabaseMap(BaseTestPeer::DATABASE_NAME);
-      if (!$dbMap->hasTable(BaseTestPeer::TABLE_NAME)) {
-        $dbMap->addTableObject(new TestTableMap());
+      $dbMap = Propel::getDatabaseMap(BaseUserPeer::DATABASE_NAME);
+      if (!$dbMap->hasTable(BaseUserPeer::TABLE_NAME)) {
+        $dbMap->addTableObject(new UserTableMap());
       }
     }
 
@@ -484,13 +499,13 @@ abstract class BaseTestPeer
      */
     public static function getOMClass($row = 0, $colnum = 0)
     {
-        return TestPeer::OM_CLASS;
+        return UserPeer::OM_CLASS;
     }
 
     /**
-     * Performs an INSERT on the database, given a Test or Criteria object.
+     * Performs an INSERT on the database, given a User or Criteria object.
      *
-     * @param      mixed $values Criteria or Test object containing data that is used to create the INSERT statement.
+     * @param      mixed $values Criteria or User object containing data that is used to create the INSERT statement.
      * @param      PropelPDO $con the PropelPDO connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -499,22 +514,18 @@ abstract class BaseTestPeer
     public static function doInsert($values, PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
         if ($values instanceof Criteria) {
             $criteria = clone $values; // rename for clarity
         } else {
-            $criteria = $values->buildCriteria(); // build Criteria from Test object
-        }
-
-        if ($criteria->containsKey(TestPeer::ID) && $criteria->keyContainsValue(TestPeer::ID) ) {
-            throw new PropelException('Cannot insert a value for auto-increment primary key ('.TestPeer::ID.')');
+            $criteria = $values->buildCriteria(); // build Criteria from User object
         }
 
 
         // Set the correct dbName
-        $criteria->setDbName(TestPeer::DATABASE_NAME);
+        $criteria->setDbName(UserPeer::DATABASE_NAME);
 
         try {
             // use transaction because $criteria could contain info
@@ -531,9 +542,9 @@ abstract class BaseTestPeer
     }
 
     /**
-     * Performs an UPDATE on the database, given a Test or Criteria object.
+     * Performs an UPDATE on the database, given a User or Criteria object.
      *
-     * @param      mixed $values Criteria or Test object containing data that is used to create the UPDATE statement.
+     * @param      mixed $values Criteria or User object containing data that is used to create the UPDATE statement.
      * @param      PropelPDO $con The connection to use (specify PropelPDO connection object to exert more control over transactions).
      * @return int             The number of affected rows (if supported by underlying database driver).
      * @throws PropelException Any exceptions caught during processing will be
@@ -542,35 +553,35 @@ abstract class BaseTestPeer
     public static function doUpdate($values, PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
-        $selectCriteria = new Criteria(TestPeer::DATABASE_NAME);
+        $selectCriteria = new Criteria(UserPeer::DATABASE_NAME);
 
         if ($values instanceof Criteria) {
             $criteria = clone $values; // rename for clarity
 
-            $comparison = $criteria->getComparison(TestPeer::ID);
-            $value = $criteria->remove(TestPeer::ID);
+            $comparison = $criteria->getComparison(UserPeer::PK_USER);
+            $value = $criteria->remove(UserPeer::PK_USER);
             if ($value) {
-                $selectCriteria->add(TestPeer::ID, $value, $comparison);
+                $selectCriteria->add(UserPeer::PK_USER, $value, $comparison);
             } else {
-                $selectCriteria->setPrimaryTableName(TestPeer::TABLE_NAME);
+                $selectCriteria->setPrimaryTableName(UserPeer::TABLE_NAME);
             }
 
-        } else { // $values is Test object
+        } else { // $values is User object
             $criteria = $values->buildCriteria(); // gets full criteria
             $selectCriteria = $values->buildPkeyCriteria(); // gets criteria w/ primary key(s)
         }
 
         // set the correct dbName
-        $criteria->setDbName(TestPeer::DATABASE_NAME);
+        $criteria->setDbName(UserPeer::DATABASE_NAME);
 
         return BasePeer::doUpdate($selectCriteria, $criteria, $con);
     }
 
     /**
-     * Deletes all rows from the test table.
+     * Deletes all rows from the user table.
      *
      * @param      PropelPDO $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).
@@ -579,19 +590,19 @@ abstract class BaseTestPeer
     public static function doDeleteAll(PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
         $affectedRows = 0; // initialize var to track total num of affected rows
         try {
             // use transaction because $criteria could contain info
             // for more than one table or we could emulating ON DELETE CASCADE, etc.
             $con->beginTransaction();
-            $affectedRows += BasePeer::doDeleteAll(TestPeer::TABLE_NAME, $con, TestPeer::DATABASE_NAME);
+            $affectedRows += BasePeer::doDeleteAll(UserPeer::TABLE_NAME, $con, UserPeer::DATABASE_NAME);
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            TestPeer::clearInstancePool();
-            TestPeer::clearRelatedInstancePool();
+            UserPeer::clearInstancePool();
+            UserPeer::clearRelatedInstancePool();
             $con->commit();
 
             return $affectedRows;
@@ -602,9 +613,9 @@ abstract class BaseTestPeer
     }
 
     /**
-     * Performs a DELETE on the database, given a Test or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a User or Criteria object OR a primary key value.
      *
-     * @param      mixed $values Criteria or Test object or primary key or array of primary keys
+     * @param      mixed $values Criteria or User object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param      PropelPDO $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -615,32 +626,32 @@ abstract class BaseTestPeer
      public static function doDelete($values, PropelPDO $con = null)
      {
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
         }
 
         if ($values instanceof Criteria) {
             // invalidate the cache for all objects of this type, since we have no
             // way of knowing (without running a query) what objects should be invalidated
             // from the cache based on this Criteria.
-            TestPeer::clearInstancePool();
+            UserPeer::clearInstancePool();
             // rename for clarity
             $criteria = clone $values;
-        } elseif ($values instanceof Test) { // it's a model object
+        } elseif ($values instanceof User) { // it's a model object
             // invalidate the cache for this single object
-            TestPeer::removeInstanceFromPool($values);
+            UserPeer::removeInstanceFromPool($values);
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(TestPeer::DATABASE_NAME);
-            $criteria->add(TestPeer::ID, (array) $values, Criteria::IN);
+            $criteria = new Criteria(UserPeer::DATABASE_NAME);
+            $criteria->add(UserPeer::PK_USER, (array) $values, Criteria::IN);
             // invalidate the cache for this object(s)
             foreach ((array) $values as $singleval) {
-                TestPeer::removeInstanceFromPool($singleval);
+                UserPeer::removeInstanceFromPool($singleval);
             }
         }
 
         // Set the correct dbName
-        $criteria->setDbName(TestPeer::DATABASE_NAME);
+        $criteria->setDbName(UserPeer::DATABASE_NAME);
 
         $affectedRows = 0; // initialize var to track total num of affected rows
 
@@ -650,7 +661,7 @@ abstract class BaseTestPeer
             $con->beginTransaction();
 
             $affectedRows += BasePeer::doDelete($criteria, $con);
-            TestPeer::clearRelatedInstancePool();
+            UserPeer::clearRelatedInstancePool();
             $con->commit();
 
             return $affectedRows;
@@ -661,13 +672,13 @@ abstract class BaseTestPeer
     }
 
     /**
-     * Validates all modified columns of given Test object.
+     * Validates all modified columns of given User object.
      * If parameter $columns is either a single column name or an array of column names
      * than only those columns are validated.
      *
      * NOTICE: This does not apply to primary or foreign keys for now.
      *
-     * @param      Test $obj The object to validate.
+     * @param      User $obj The object to validate.
      * @param      mixed $cols Column name or array of column names.
      *
      * @return mixed TRUE if all columns are valid or the error message of the first invalid column.
@@ -677,8 +688,8 @@ abstract class BaseTestPeer
         $columns = array();
 
         if ($cols) {
-            $dbMap = Propel::getDatabaseMap(TestPeer::DATABASE_NAME);
-            $tableMap = $dbMap->getTable(TestPeer::TABLE_NAME);
+            $dbMap = Propel::getDatabaseMap(UserPeer::DATABASE_NAME);
+            $tableMap = $dbMap->getTable(UserPeer::TABLE_NAME);
 
             if (! is_array($cols)) {
                 $cols = array($cols);
@@ -694,7 +705,7 @@ abstract class BaseTestPeer
 
         }
 
-        return BasePeer::doValidate(TestPeer::DATABASE_NAME, TestPeer::TABLE_NAME, $columns);
+        return BasePeer::doValidate(UserPeer::DATABASE_NAME, UserPeer::TABLE_NAME, $columns);
     }
 
     /**
@@ -702,23 +713,23 @@ abstract class BaseTestPeer
      *
      * @param      int $pk the primary key.
      * @param      PropelPDO $con the connection to use
-     * @return Test
+     * @return User
      */
     public static function retrieveByPK($pk, PropelPDO $con = null)
     {
 
-        if (null !== ($obj = TestPeer::getInstanceFromPool((string) $pk))) {
+        if (null !== ($obj = UserPeer::getInstanceFromPool((string) $pk))) {
             return $obj;
         }
 
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
-        $criteria = new Criteria(TestPeer::DATABASE_NAME);
-        $criteria->add(TestPeer::ID, $pk);
+        $criteria = new Criteria(UserPeer::DATABASE_NAME);
+        $criteria->add(UserPeer::PK_USER, $pk);
 
-        $v = TestPeer::doSelect($criteria, $con);
+        $v = UserPeer::doSelect($criteria, $con);
 
         return !empty($v) > 0 ? $v[0] : null;
     }
@@ -728,31 +739,31 @@ abstract class BaseTestPeer
      *
      * @param      array $pks List of primary keys
      * @param      PropelPDO $con the connection to use
-     * @return Test[]
+     * @return User[]
      * @throws PropelException Any exceptions caught during processing will be
      *		 rethrown wrapped into a PropelException.
      */
     public static function retrieveByPKs($pks, PropelPDO $con = null)
     {
         if ($con === null) {
-            $con = Propel::getConnection(TestPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+            $con = Propel::getConnection(UserPeer::DATABASE_NAME, Propel::CONNECTION_READ);
         }
 
         $objs = null;
         if (empty($pks)) {
             $objs = array();
         } else {
-            $criteria = new Criteria(TestPeer::DATABASE_NAME);
-            $criteria->add(TestPeer::ID, $pks, Criteria::IN);
-            $objs = TestPeer::doSelect($criteria, $con);
+            $criteria = new Criteria(UserPeer::DATABASE_NAME);
+            $criteria->add(UserPeer::PK_USER, $pks, Criteria::IN);
+            $objs = UserPeer::doSelect($criteria, $con);
         }
 
         return $objs;
     }
 
-} // BaseTestPeer
+} // BaseUserPeer
 
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-BaseTestPeer::buildTableMap();
+BaseUserPeer::buildTableMap();
 

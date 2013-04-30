@@ -13,6 +13,15 @@ require("classes/basemodel.php");
 require("classes/view.php");
 require("classes/viewmodel.php");
 require("classes/loader.php");
+// Include the main Propel script
+require_once 'vendor/propel/propel1/runtime/lib/Propel.php';
+
+//// Initialize Propel with the runtime configuration
+Propel::init("build/conf/georginfanger-conf.php");
+
+
+// Add the generated 'classes' directory to the include path
+set_include_path("build/entities" . PATH_SEPARATOR . get_include_path());
 
 
 $loader = new Loader($_GET); //create the loader object

@@ -18,6 +18,16 @@ class AdminController extends BaseController {
       protected function index() {
             $this->view->output($this->model->index());
       }
+       protected function user(){
+             
+           $this->view->output($this->model->user());
+           
+       }
+       protected function saveuser(){
+             
+           $this->view->output($this->model->saveuser());
+           
+       }
 
 }
 

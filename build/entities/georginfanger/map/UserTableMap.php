@@ -3,7 +3,7 @@
 
 
 /**
- * This class defines the structure of the 'test' table.
+ * This class defines the structure of the 'user' table.
  *
  *
  *
@@ -14,13 +14,13 @@
  *
  * @package    propel.generator.georginfanger.map
  */
-class TestTableMap extends TableMap
+class UserTableMap extends TableMap
 {
 
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = 'georginfanger.map.TestTableMap';
+    const CLASS_NAME = 'georginfanger.map.UserTableMap';
 
     /**
      * Initialize the table attributes, columns and validators
@@ -32,13 +32,16 @@ class TestTableMap extends TableMap
     public function initialize()
     {
         // attributes
-        $this->setName('test');
-        $this->setPhpName('Test');
-        $this->setClassname('Test');
+        $this->setName('user');
+        $this->setPhpName('User');
+        $this->setClassname('User');
         $this->setPackage('georginfanger');
-        $this->setUseIdGenerator(true);
+        $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('id', 'Id', 'INTEGER', true, null, null);
+        $this->addPrimaryKey('pk_user', 'PkUser', 'INTEGER', true, 32, null);
+        $this->addColumn('user_uname', 'UserUname', 'VARCHAR', true, 10, null);
+        $this->addColumn('user_pw', 'UserPw', 'VARCHAR', true, 32, null);
+        $this->addColumn('user_salt', 'UserSalt', 'VARCHAR', true, 32, null);
         // validators
     } // initialize()
 
@@ -49,4 +52,4 @@ class TestTableMap extends TableMap
     {
     } // buildRelations()
 
-} // TestTableMap
+} // UserTableMap
