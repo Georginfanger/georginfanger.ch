@@ -1,21 +1,24 @@
 <?php
 
 /**
- * Description of index
+ * Description of user
  *
  * @author georginfanger <me@georginfanger.ch>
  * 
  * 
  */
 
- 
+
 $data = $viewModel->get('content'); 
 
-foreach($data as $author) { 
-echo $author->getUserUname();
+
+
+echo '<table border="1"><tr><td>Username</td></tr>';
+foreach($data as $value){
+	echo  "<tr><td>".$value->getUserUname()."</tr>"  ;  
 }
-      ?>
-<form name="input" action="user" method="post">
-Username: <input type="text" name="username">
-<input type="submit" value="Submit">
-</form>
+echo "</table>";
+
+
+
+?>

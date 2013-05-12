@@ -11,5 +11,10 @@
  
 $data = $viewModel->get('content'); 
 
-
+foreach($data as $key=>$value){
+      
+      echo $key;
+      echo "</br> ". $value;
+      
+}
       ?>

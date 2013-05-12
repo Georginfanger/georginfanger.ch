@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description of error
+ * Description of HomeModel
  *
  * @author georginfanger <me@georginfanger.ch>
  * 
@@ -10,34 +10,17 @@
 class AdminModel extends BaseModel {
 
       public function __construct() {
-            parent::__construct(true);
+            parent::__construct();
       }
 
-      //data passed to the bad URL error view
+      //data passed to the home index view
       public function index() {
-            $this->viewModel->set("pageTitle", get_class($this));
-
-            return $this->viewModel;
-      }
-
-      public function user() {
-                 require 'user.php';
-            $um = new \UserModel();
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-                  $this->saveuser($um);
-            }
-       
-            $this->viewModel->set("pageTitle", get_class($this));
-            // $array = UserQuery::create()->find();
-            $this->viewModel->set("content", $um->user_admin());
+            $this->viewModel->set("pageTitle", "Georg Infanger - Admin");
+            $this->viewModel->set("content", array('content'=>'hello///', 'test2'=>'nw'));
             return $this->viewModel;
       }
       
-      public function saveuser($um){
-          $username =  $_POST['username'];
-          
-          $um->user_save($username, "");
-      }
+     
 
 }
 

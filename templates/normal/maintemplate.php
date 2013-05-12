@@ -15,7 +15,7 @@
       <div id="content">
             <div id="mainmenu">
                   <?php require($this->mainMenu); ?>
-                  </br>
+                
             </div>
             
             
